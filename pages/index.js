@@ -11,28 +11,29 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          홍익대학교 컴퓨터공학과<br></br> 졸업전시회에 오신걸 환영합니다
+          홍익대학교 컴퓨터공학과
+          <br /> 졸업전시회에 오신걸 환영합니다
         </h1>
 
         <div className={styles.grid}>
           <a href="" className={styles.card}>
             <h3>POTY &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <p>Youtube 댓글의 하이라이트를 모아서 보여드립니다! </p>
           </a>
 
           <a href="" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <h3>POTY &rarr;</h3>
+            <p>Youtube 댓글의 하이라이트를 모아서 보여드립니다! </p>
           </a>
 
           <a href="" className={styles.card}>
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>POTY &rarr;</h3>
+            <p>Youtube 댓글의 하이라이트를 모아서 보여드립니다! </p>
           </a>
 
           <a href="" className={styles.card}>
-            <h3>Deploy &rarr;</h3>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
+            <h3>POTY &rarr;</h3>
+            <p>Youtube 댓글의 하이라이트를 모아서 보여드립니다! </p>
           </a>
         </div>
       </main>
