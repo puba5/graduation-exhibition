@@ -16,7 +16,7 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <a href="" className={styles.card}>
+          <a href="/poty" className={styles.card}>
             <h3>POTY &rarr;</h3>
             <p>Youtube 댓글의 하이라이트를 모아서 보여드립니다! </p>
           </a>
