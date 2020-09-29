@@ -1,14 +1,21 @@
 import styled from "styled-components";
-import Chatting from "./components/chatting";
+import Chatting from "../components/chatting";
+import Link from "next/link";
 
 export default function Messenger() {
   return (
     <div>
       <Wrapper>
         <LeftNav>
-          <NavIcon></NavIcon>
-          <NavIcon></NavIcon>
-          <NavIcon></NavIcon>
+          <Link href="/messenger/user">
+            <NavIcon></NavIcon>
+          </Link>
+          <Link href="/messenger/messenger">
+            <NavIcon></NavIcon>
+          </Link>
+          <Link href="/messenger/setting">
+            <NavIcon></NavIcon>
+          </Link>
         </LeftNav>
         <ContentWrapper>
           <Chatting></Chatting>
