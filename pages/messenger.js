@@ -3,19 +3,39 @@ import styled from "styled-components";
 const CHATTING_DATA = [
   {
     userName: "고은",
-    content: "안녕",
+    content: "안녕 나는 고은이야!!",
   },
   {
     userName: "정시원",
-    content: "빨리해",
+    content: "빨리해 나는 정시원이야!!!!",
+  },
+  {
+    userName: "고은",
+    content: "안녕 나는 고은이야!!",
+  },
+  {
+    userName: "정시원",
+    content: "빨리해 나는 정시원이야!!!!",
+  },
+  {
+    userName: "고은",
+    content: "안녕 나는 고은이야!!",
+  },
+  {
+    userName: "정시원",
+    content: "빨리해 나는 정시원이야!!!!",
+  },
+  {
+    userName: "고은",
+    content: "안녕 나는 고은이야!!",
+  },
+  {
+    userName: "정시원",
+    content: "빨리해 나는 정시원이야!!!!",
   },
   {
     userName: "고은",
     content: "안녕",
-  },
-  {
-    userName: "정시원",
-    content: "빨리해",
   },
 ];
 
@@ -65,11 +85,14 @@ const ContentWrapper = styled.div`
 const ContentHeader = styled.div`
   width: 400px;
   height: 70px;
-  padding: 10px;
+  padding: 15px;
   font-size: 20px;
 `;
 
-const ChattingList = styled.div``;
+const ChattingList = styled.div`
+  height: 530px;
+  overflow-y: scroll;
+`;
 
 const UserImage = styled.div`
   height: 50px;
