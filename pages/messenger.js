@@ -43,7 +43,11 @@ export default function Messenger() {
   return (
     <div>
       <Wrapper>
-        <LeftNav></LeftNav>
+        <LeftNav>
+          <NavIcon></NavIcon>
+          <NavIcon></NavIcon>
+          <NavIcon></NavIcon>
+        </LeftNav>
         <ContentWrapper>
           <ContentHeader>채팅</ContentHeader>
           <ChattingList>
@@ -75,7 +79,20 @@ const LeftNav = styled.div`
   height: 600px;
   width: 80px;
   background: #964b00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
 `;
+
+const NavIcon = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  background: black;
+  margin-bottom: 10px;
+`;
+
 const ContentWrapper = styled.div`
   height: 600px;
   width: 300px;
