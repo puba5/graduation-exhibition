@@ -12,32 +12,39 @@ export default function Review() {
   return (
     <>
       <ReviewListWrapper>
-        {REVIEW_LIST.map((reviewData) => {
+        {REVIEW_LIST.map((reviewData, index) => {
           return (
-            <ReviewWrapper>
+            <ReviewWrapper key={index}>
               <Reviewer>{reviewData.name}</Reviewer>
               <ReviewContent>{reviewData.content}</ReviewContent>
             </ReviewWrapper>
           );
         })}
       </ReviewListWrapper>
-      <div>
-        <div>닉네임</div>
+      <WriteReviewWrapper>
+        <WriteReviewHeader>
+          <WriteReviewWriter>
+            <p>닉네임</p>
+            <WriteReviewWriterInput />
+          </WriteReviewWriter>
+          <WriteReviewButton>작성하기</WriteReviewButton>
+        </WriteReviewHeader>
         <div>내용</div>
-        <div>작성하기 버튼</div>
-      </div>
+        <WriteReviewContent></WriteReviewContent>
+      </WriteReviewWrapper>
     </>
   );
 }
 
 const ReviewListWrapper = styled.div`
   width: 1000px;
+  margin-top: 20px;
 `;
 
 const ReviewWrapper = styled.div`
   display: flex;
   padding: 10px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 `;
 
 const Reviewer = styled.div`
@@ -50,5 +57,40 @@ const Reviewer = styled.div`
 
 const ReviewContent = styled.div``;
 
-const WriteReviewWrapper = styled.div``;
-const WriteReviewHeader = styled.div``;
+const WriteReviewWrapper = styled.div`
+  width: 1000px;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid black 2px;
+  margin-top: 20px;
+`;
+
+const WriteReviewHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const WriteReviewWriter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const WriteReviewWriterInput = styled.textarea`
+  height: 25px;
+  margin-left: 10px;
+`;
+
+const WriteReviewButton = styled.button`
+  height: 30px;
+  width: 100px;
+  font-size: 18px;
+  background-color: pink;
+  border: none;
+  border-radius: 10px;
+`;
+
+const WriteReviewContent = styled.textarea`
+  width: 100%;
+  height: 100px;
+`;
