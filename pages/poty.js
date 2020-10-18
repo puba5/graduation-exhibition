@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Review from "./components/review";
 
 const EXHIBITION_INFO = {
   title: "POTY",
@@ -17,6 +18,7 @@ export default function POTY() {
       <ProjectMaker>개발자 : {EXHIBITION_INFO.maker.join(", ")}</ProjectMaker>
       <MainVideo src={EXHIBITION_INFO.imageLink}></MainVideo>
       <ProjectDescription>{EXHIBITION_INFO.description}</ProjectDescription>
+      <Review />
     </Wrapper>
   );
 }
