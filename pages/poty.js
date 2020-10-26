@@ -16,6 +16,7 @@ export default function POTY() {
     <Wrapper>
       <Title>{EXHIBITION_INFO.title}를 소개합니다.</Title>
       <SiteLink href={EXHIBITION_INFO.link}>사이트 연결 링크( 클릭 )</SiteLink>
+      <a href="/messenger/messenger">채팅으로 연결</a>
       <ProjectMaker>개발자 : {EXHIBITION_INFO.maker.join(", ")}</ProjectMaker>
       <MainVideo src={EXHIBITION_INFO.imageLink}></MainVideo>
       <ProjectDescription>{EXHIBITION_INFO.description}</ProjectDescription>
@@ -43,7 +44,9 @@ const ProjectMaker = styled.p``;
 
 const MainVideo = styled.img`
   width: 1000px;
+  height: 500px;
   border: 2px solid green;
+  margin-bottom: 10px;
 `;
 
 const ProjectDescription = styled.div`
