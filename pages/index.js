@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import ProjectList from "./components/ProjectList/projectList";
 
 export default function Home() {
   return (
@@ -14,7 +15,10 @@ export default function Home() {
           홍익대학교 컴퓨터공학과
           <br /> 졸업전시회에 오신걸 환영합니다
         </h1>
-
+        <br />
+        <br />
+        <br />
+        <ProjectList />
         <div className={styles.grid}>
           <a href="/poty" className={styles.card}>
             <h3>POTY &rarr;</h3>
