@@ -1,29 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-const PROJECT_SNIFFET_INFO = [
-  {
-    title: "POTY",
-    tag: "etc",
-  },
-  {
-    title: "POTY",
-    tag: "etc",
-  },
-  {
-    title: "POTY",
-    tag: "etc",
-  },
-];
+export default function ProjectSniffetList({ checkCount, setCheckCount, PROJECT_SNIFFET_INFO }) {
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setCheckCount(checkCount + 1);
+    } else {
+      setCheckCount(checkCount - 1);
+    }
+  };
 
-export default function ProjectSniffetList() {
   return (
     <Wrapper>
       {PROJECT_SNIFFET_INFO.map((sniffetInfo, index) => {
         return (
           <ProjectSniffet key={index}>
             <SniffetTitle>
-              <input type="checkbox"></input>
+              <input onClick={handleChange} type="checkbox"></input>
               <div>{sniffetInfo.title}</div>
               <SniffetTag>{sniffetInfo.tag}</SniffetTag>
             </SniffetTitle>

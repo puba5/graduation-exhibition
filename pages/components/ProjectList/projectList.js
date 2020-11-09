@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ProjectSniffetList from "./projectSniffetList";
 
+const PROJECT_SNIFFET_INFO = [
+  {
+    title: "POTY",
+    tag: "etc",
+  },
+  {
+    title: "POTY",
+    tag: "etc",
+  },
+  {
+    title: "POTY",
+    tag: "etc",
+  },
+];
+
 export default function ProjectList() {
+  const [checkCount, setCheckCount] = useState(0);
   return (
     <Wrapper>
       <Header>
         <input type="checkbox" />
+        <PropsCount>
+          {checkCount} / {PROJECT_SNIFFET_INFO.length}
+        </PropsCount>
         <ButtonList>
           <FilterButton>Author ▼</FilterButton>
           <FilterButton>Label ▼</FilterButton>
@@ -16,7 +35,11 @@ export default function ProjectList() {
           <FilterButton>Sort ▼</FilterButton>
         </ButtonList>
       </Header>
-      <ProjectSniffetList />
+      <ProjectSniffetList
+        checkCount={checkCount}
+        setCheckCount={setCheckCount}
+        PROJECT_SNIFFET_INFO={PROJECT_SNIFFET_INFO}
+      />
     </Wrapper>
   );
 }
@@ -44,3 +67,5 @@ const ButtonList = styled.div`
   display: flex;
   gap: 5px;
 `;
+
+const PropsCount = styled.div``;
