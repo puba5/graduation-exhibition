@@ -6,14 +6,20 @@ const PROJECT_SNIFFET_INFO = [
   {
     title: "POTY",
     tag: "etc",
+    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
+    link: "poty",
   },
   {
     title: "POTY",
     tag: "etc",
+    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
+    link: "poty",
   },
   {
     title: "POTY",
     tag: "etc",
+    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
+    link: "poty",
   },
 ];
 
@@ -48,6 +54,7 @@ const Wrapper = styled.div`
   width: 1000px;
   border: 1px solid #aaaaaa;
   border-radius: 10px;
+  min-height: 500px;
 `;
 
 const Header = styled.div`

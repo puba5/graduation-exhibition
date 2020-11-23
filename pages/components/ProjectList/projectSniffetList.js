@@ -14,13 +14,13 @@ export default function ProjectSniffetList({ checkCount, setCheckCount, PROJECT_
     <Wrapper>
       {PROJECT_SNIFFET_INFO.map((sniffetInfo, index) => {
         return (
-          <ProjectSniffet key={index}>
+          <ProjectSniffet key={index} href={`/${sniffetInfo.link}`}>
             <SniffetTitle>
               <input onClick={handleChange} type="checkbox"></input>
-              <div>{sniffetInfo.title}</div>
+              <Title>{sniffetInfo.title}</Title>
               <SniffetTag>{sniffetInfo.tag}</SniffetTag>
             </SniffetTitle>
-            <SniffetDetail>마지막 업데이트는 1일 전입니다.</SniffetDetail>
+            <SniffetDetail>{sniffetInfo.detail}</SniffetDetail>
           </ProjectSniffet>
         );
       })}
@@ -30,20 +30,22 @@ export default function ProjectSniffetList({ checkCount, setCheckCount, PROJECT_
 
 const Wrapper = styled.div``;
 
-const ProjectSniffet = styled.div`
+const ProjectSniffet = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-top: 1px solid #aaaaaa;
   width: 100%;
-  height: 50px;
-  padding: 0 20px;
+  padding: 12px 20px;
 `;
 
 const SniffetTitle = styled.div`
   display: flex;
   gap: 10px;
+  margin-bottom: 5px;
 `;
+
+const Title = styled.div``;
 
 const SniffetTag = styled.div`
   padding: 0 5px;
