@@ -3,19 +3,23 @@ import styled from "styled-components";
 export default function Header() {
   return (
     <Wrapper>
-      <div />
+      <a href="/">홈으로 가기</a>
       <UserInfo>
-        <div>로그인</div>
+        <a href="/login">로그인</a>
+        <a href="/signup">회원가입</a>
       </UserInfo>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
+  padding: 20px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: space-between;
 `;
 
-const UserInfo = styled.div``;
+const UserInfo = styled.div`
+  display: flex;
+  gap: 10px;
+`;

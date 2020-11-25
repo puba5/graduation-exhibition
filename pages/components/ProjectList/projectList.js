@@ -23,6 +23,8 @@ const PROJECT_SNIFFET_INFO = [
   },
 ];
 
+const COLUMN_LIST = ["Projects", "Developer", "Professor", "Sort"];
+
 export default function ProjectList() {
   const [checkCount, setCheckCount] = useState(0);
   return (
@@ -33,12 +35,9 @@ export default function ProjectList() {
           {checkCount} / {PROJECT_SNIFFET_INFO.length}
         </PropsCount>
         <ButtonList>
-          <FilterButton>Author ▼</FilterButton>
-          <FilterButton>Label ▼</FilterButton>
-          <FilterButton>Projects ▼</FilterButton>
-          <FilterButton>Milestones ▼</FilterButton>
-          <FilterButton>Assignee ▼</FilterButton>
-          <FilterButton>Sort ▼</FilterButton>
+          {COLUMN_LIST.map((column) => (
+            <FilterButton>{column} ▼</FilterButton>
+          ))}
         </ButtonList>
       </Header>
       <ProjectSniffetList
