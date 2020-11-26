@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Review from "./components/review";
+import Review from "./components/Review/review";
 import Header from "./components/header";
 
 const EXHIBITION_INFO = {

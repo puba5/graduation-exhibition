@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Socket, { deleteComment, putComment } from "../../api/socket/Socket";
-
-const REVIEW_LIST = [
-  { name: "1번 방문자", content: "너무 프로젝트가 멋지네요" },
-  { name: "2번 방문자", content: "잘 보고 갑니다" },
-  { name: "3번 방문자", content: "고생했다 얘들아" },
-  { name: "4번 방문자", content: "서버는 어떤 기술스택을 사용하셨나요?" },
-  { name: "주인장", content: "Express 사용했습니다" },
-];
+import Socket, { deleteComment, putComment } from "../../../api/socket/Socket";
 
 export default function Review() {
   const projectId = "poty";
+
+  const [nickName, setNickname] = useState("");
+  const [commentContent, setCommentContent] = useState("");
 
   const [reviewList, setReviewList] = useState([]);
   useEffect(() => {
@@ -24,13 +19,21 @@ export default function Review() {
   };
 
   const write = () => {
-    putComment(projectId, { name: "주인장", content: "Express 사용했습니다" });
+    if (!nickName || !commentContent) return;
+    putComment(projectId, { name: nickName, content: commentContent });
+    setNickname("");
+    setCommentContent("");
     refresh();
   };
 
   const remove = () => {
-    deleteComment(projectId, {key: 1});
+    deleteComment(projectId, { key: 1 });
     refresh();
+  };
+
+  const handleCommentInput = (value, setValue) => (event) => {
+    setValue(event.target.value);
+    console.log(value);
   };
 
   return (
@@ -49,12 +52,18 @@ export default function Review() {
         <WriteReviewHeader>
           <WriteReviewWriter>
             <p>닉네임</p>
-            <WriteReviewWriterInput />
+            <WriteReviewWriterInput
+              value={nickName}
+              onChange={handleCommentInput(nickName, setNickname)}
+            />
           </WriteReviewWriter>
           <WriteReviewButton onClick={() => write()}>작성하기</WriteReviewButton>
         </WriteReviewHeader>
         <div>내용</div>
-        <WriteReviewContent></WriteReviewContent>
+        <WriteReviewContent
+          value={commentContent}
+          onChange={handleCommentInput(commentContent, setCommentContent)}
+        />
       </WriteReviewWrapper>
     </>
   );
