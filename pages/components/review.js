@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Socket, { putComment } from "../../api/socket/Socket";
 
 const REVIEW_LIST = [
   { name: "1번 방문자", content: "너무 프로젝트가 멋지네요" },
@@ -9,10 +11,27 @@ const REVIEW_LIST = [
 ];
 
 export default function Review() {
+  const projectId = "poty";
+
+  const [reviewList, setReviewList] = useState([]);
+  useEffect(() => {
+    refresh();
+  }, []);
+
+  const refresh = async () => {
+    const comments = await Socket.getComments(projectId);
+    setReviewList(comments);
+  };
+
+  const write = () => {
+    putComment(projectId, { name: "주인장", content: "Express 사용했습니다" });
+    refresh();
+  };
+
   return (
     <>
       <ReviewListWrapper>
-        {REVIEW_LIST.map((reviewData, index) => {
+        {reviewList.map((reviewData, index) => {
           return (
             <ReviewWrapper key={index}>
               <Reviewer>{reviewData.name}</Reviewer>
@@ -27,7 +46,7 @@ export default function Review() {
             <p>닉네임</p>
             <WriteReviewWriterInput />
           </WriteReviewWriter>
-          <WriteReviewButton>작성하기</WriteReviewButton>
+          <WriteReviewButton onClick={() => write()}>작성하기</WriteReviewButton>
         </WriteReviewHeader>
         <div>내용</div>
         <WriteReviewContent></WriteReviewContent>
