@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ProjectSniffetList({
-  checkCount,
-  setCheckCount,
-  PROJECT_SNIFFET_INFO,
-  titleList,
-}) {
+export default function ProjectSniffetList({ checkCount, setCheckCount, titleList }) {
   const handleChange = (e) => {
     if (e.target.checked) {
       setCheckCount(checkCount + 1);
@@ -23,9 +18,9 @@ export default function ProjectSniffetList({
             <SniffetTitle>
               <input onClick={handleChange} type="checkbox"></input>
               <Title>{title}</Title>
-              <SniffetTag>{}</SniffetTag>
+              <SniffetTag>CE</SniffetTag>
             </SniffetTitle>
-            <SniffetDetail>{}</SniffetDetail>
+            <SniffetDetail>홍익대학교 4-2 졸업 프로젝트입니다.</SniffetDetail>
           </ProjectSniffet>
         );
       })}

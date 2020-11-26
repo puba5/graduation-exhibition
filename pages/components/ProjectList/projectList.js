@@ -40,6 +40,7 @@ export default function ProjectList() {
         console.log(error);
       });
   };
+
   useEffect(() => {
     getTitleList();
   }, []);
@@ -47,9 +48,8 @@ export default function ProjectList() {
   return (
     <Wrapper>
       <Header>
-        <input type="checkbox" />
         <PropsCount>
-          {checkCount} / {PROJECT_SNIFFET_INFO.length}
+          {titleList.length}개 중 {checkCount}개의 졸업 프로젝트를 선택하셨습니다.
         </PropsCount>
         <ButtonList>
           {COLUMN_LIST.map((column) => (
@@ -60,7 +60,6 @@ export default function ProjectList() {
       <ProjectSniffetList
         checkCount={checkCount}
         setCheckCount={setCheckCount}
-        PROJECT_SNIFFET_INFO={PROJECT_SNIFFET_INFO}
         titleList={titleList}
       />
     </Wrapper>
@@ -71,7 +70,6 @@ const Wrapper = styled.div`
   width: 1000px;
   border: 1px solid #aaaaaa;
   border-radius: 10px;
-  min-height: 500px;
 `;
 
 const Header = styled.div`

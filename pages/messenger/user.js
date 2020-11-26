@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Chatting from "../components/chatting";
 import Link from "next/link";
 
 export default function User() {

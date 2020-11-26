@@ -1,27 +1,45 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Review from "./components/Review/review";
 import Header from "./components/header";
-
-const EXHIBITION_INFO = {
-  title: "POTY",
-  link: "http://poty.1000ship.me/#/",
-  description:
-    "POTY is short of play of the youtube. 댓글을 분류하여 보여주는 프로젝트입니다. POTY is short of play of the youtube. 댓글을 분류하여 보여주는 프로젝트입니다.POTY is short of play of the youtube. 댓글을 분류하여 보여주는 프로젝트입니다.",
-  maker: ["B511126 유현우", "B 천성혁", "B 백경현"],
-  imageLink:
-    "https://user-images.githubusercontent.com/37804777/100363974-d1c01a00-3040-11eb-86ad-daf5c5015c6c.png",
-};
+import axios from "axios";
 
 export default function POTY() {
+  const [projectInfo, setProjectInfo] = useState({
+    developer: [],
+    link: "http://poty.1000ship.me/#/",
+    imageLink:
+      "https://user-images.githubusercontent.com/37804777/100363974-d1c01a00-3040-11eb-86ad-daf5c5015c6c.png",
+  });
+  const getData = () => {};
+
+  console.log(projectInfo);
+  useEffect(() => {
+    getData();
+    axios
+      .get("http://101.101.216.23:4000/pages/POTY")
+      .then(function (response) {
+        setProjectInfo({ ...projectInfo, ...response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <Wrapper>
       <Header />
-      <Title>{EXHIBITION_INFO.title}를 소개합니다.</Title>
-      <SiteLink href={EXHIBITION_INFO.link}>사이트 연결 링크( 클릭 )</SiteLink>
-      <a href="/messenger/messenger">채팅으로 연결</a>
-      <ProjectMaker>개발자 : {EXHIBITION_INFO.maker.join(", ")}</ProjectMaker>
-      <MainVideo src={EXHIBITION_INFO.imageLink}></MainVideo>
-      <ProjectDescription>{EXHIBITION_INFO.description}</ProjectDescription>
+      <Title>{projectInfo.title}를 소개합니다.</Title>
+      <SiteLink href={projectInfo.link}>사이트 연결 링크( 클릭 )</SiteLink>
+      <WebexLink href={projectInfo.addr}>Webex로 연결</WebexLink>
+      <ProjectMaker>
+        개발자 :{" "}
+        {projectInfo.developer.reduce((acc, dev) => {
+          return acc + dev.id + " " + dev.password + ", ";
+        }, "")}
+      </ProjectMaker>
+      <MainVideo src={projectInfo.imageLink}></MainVideo>
+      <ProjectDescription>{projectInfo.content}</ProjectDescription>
       <Review />
     </Wrapper>
   );
@@ -39,9 +57,21 @@ const Title = styled.div`
 `;
 
 const SiteLink = styled.a`
-  border: 1px solid red;
-  padding: 5px;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 20px;
+  background-color: red;
+  margin: 10px;
 `;
+
+const WebexLink = styled.a`
+  color: white;
+  border-radius: 20px;
+  padding: 5px 20px;
+  background-color: darkblue;
+  margin: 10px;
+`;
+
 const ProjectMaker = styled.p``;
 
 const MainVideo = styled.img`
