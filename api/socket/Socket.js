@@ -1,17 +1,11 @@
 const io = require("socket.io-client");
 
-var socketName = `Socket${parseInt(Math.random() * 1000)}`;
-// var callbackFunc = () => null;
-
-const SOCKET_ADDR = "http://localhost:4000";
+const SOCKET_ADDR = "http://101.101.216.23:4001";
 
 var socket = io(SOCKET_ADDR);
 
 socket.on("connect", async () => {
   console.log(`Socket [${socket.id}] connected`);
-  // 이렇게 사용하기
-  // Socket.putComment(5, {name:"성혁", age: 25});
-  // console.log( await Socket.getComments(5) );
 });
 
 var receivedComments = null;
@@ -34,15 +28,6 @@ const waitForPacket = async (func, time = 1000) =>
   });
 
 const Socket = {
-  // enterGroup: (groupName) => socket.emit("JOIN", groupName),
-  // leaveGroup: (groupName) => socket.emit("LEAVE", groupName),
-  // getGroupList: () => null,
-  // getMemberCount: (groupName) => socket.emit("CNT", gorupName),
-  // sendEmotion: (emotionType) => socket.emit("EMT", emotionType),
-  // sendMessage: (message) => socket.emit("MSG", message),
-  // callback: (func) => (callbackFunc = func),
-
-  // await getComments( 5 ); // 5번 방의 댓글 불러오기 return type: Object[]
   getComments: async (id) => {
     socket.emit("GET_COMMENT", id);
     const result = await waitForPacket(() => receivedComments);
@@ -53,3 +38,7 @@ const Socket = {
 };
 
 module.exports = Socket;
+
+// 사용법
+// Socket.putComment(5, {name:"성혁", age: 25});
+// console.log( await Socket.getComments(5) );
