@@ -12,18 +12,19 @@ export default function ProjectSniffetList({ checkCount, setCheckCount, titleLis
 
   return (
     <Wrapper>
-      {titleList.map((title, index) => {
-        return (
-          <ProjectSniffet key={index} href={`/${title}`}>
-            <SniffetTitle>
-              <input onClick={handleChange} type="checkbox"></input>
-              <Title>{title}</Title>
-              <SniffetTag>CE</SniffetTag>
-            </SniffetTitle>
-            <SniffetDetail>홍익대학교 4-2 졸업 프로젝트입니다.</SniffetDetail>
-          </ProjectSniffet>
-        );
-      })}
+      {titleList &&
+        titleList.map((title, index) => {
+          return (
+            <ProjectSniffet key={index} href={`/${title}`}>
+              <SniffetTitle>
+                <input onClick={handleChange} type="checkbox"></input>
+                <Title>{title}</Title>
+                <SniffetTag>CE</SniffetTag>
+              </SniffetTitle>
+              <SniffetDetail>홍익대학교 4-2 졸업 프로젝트입니다.</SniffetDetail>
+            </ProjectSniffet>
+          );
+        })}
     </Wrapper>
   );
 }

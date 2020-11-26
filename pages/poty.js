@@ -38,7 +38,9 @@ export default function POTY() {
           return acc + dev.id + " " + dev.password + ", ";
         }, "")}
       </ProjectMaker>
+
       <MainVideo src={projectInfo.imageLink}></MainVideo>
+      <div>작품 설명</div>
       <ProjectDescription>{projectInfo.content}</ProjectDescription>
       <Review />
     </Wrapper>
@@ -72,15 +74,23 @@ const WebexLink = styled.a`
   margin: 10px;
 `;
 
-const ProjectMaker = styled.p``;
+const ProjectMaker = styled.p`
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: #eeeeee;
+  padding: 5px 10px;
+`;
 
 const MainVideo = styled.img`
   width: 1000px;
-  height: 500px;
   border: 2px solid green;
-  margin-bottom: 10px;
+  margin: 10px;
 `;
 
 const ProjectDescription = styled.div`
   width: 1000px;
+  font-size: 20px;
+  margin: 40px;
+  padding: 10px;
+  border: 2px solid black;
 `;

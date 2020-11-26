@@ -3,27 +3,6 @@ import styled from "styled-components";
 import ProjectSniffetList from "./projectSniffetList";
 import axios from "axios";
 
-const PROJECT_SNIFFET_INFO = [
-  {
-    title: "POTY",
-    tag: "etc",
-    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
-    link: "poty",
-  },
-  {
-    title: "POTY",
-    tag: "etc",
-    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
-    link: "poty",
-  },
-  {
-    title: "POTY",
-    tag: "etc",
-    detail: "Youtube 댓글의 하이라이트를 모아서 보여드립니다!",
-    link: "poty",
-  },
-];
-
 const COLUMN_LIST = ["Projects", "Developer", "Professor", "Sort"];
 
 export default function ProjectList() {
@@ -33,10 +12,10 @@ export default function ProjectList() {
   const getTitleList = () => {
     axios
       .get("http://101.101.216.23:4000/select")
-      .then(function (response) {
+      .then((response) => {
         setTitleList(response.data.titleList);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };

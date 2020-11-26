@@ -27,8 +27,8 @@ export default function Review() {
     refresh();
   };
 
-  const remove = () => {
-    deleteComment(projectId, { key: 1 });
+  const remove = (key) => () => {
+    deleteComment(projectId, { key: key });
     refresh();
   };
 
@@ -45,6 +45,7 @@ export default function Review() {
             <ReviewWrapper key={index}>
               <Reviewer>{reviewData.name}</Reviewer>
               <ReviewContent>{reviewData.content}</ReviewContent>
+              <DeleteButton onClick={remove(reviewData.key)}>댓글 삭제</DeleteButton>
             </ReviewWrapper>
           );
         })}
@@ -97,6 +98,16 @@ const WriteReviewWrapper = styled.div`
   border-radius: 20px;
   border: solid black 2px;
   margin-top: 20px;
+`;
+
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  border-radius: 10px;
+  background: orange;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;
 `;
 
 const WriteReviewHeader = styled.div`
