@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Review from "./components/review";
+import Header from "./components/header";
 
 const EXHIBITION_INFO = {
   title: "POTY",
@@ -14,8 +15,10 @@ const EXHIBITION_INFO = {
 export default function POTY() {
   return (
     <Wrapper>
+      <Header />
       <Title>{EXHIBITION_INFO.title}를 소개합니다.</Title>
       <SiteLink href={EXHIBITION_INFO.link}>사이트 연결 링크( 클릭 )</SiteLink>
+      <a href="/messenger/messenger">채팅으로 연결</a>
       <ProjectMaker>개발자 : {EXHIBITION_INFO.maker.join(", ")}</ProjectMaker>
       <MainVideo src={EXHIBITION_INFO.imageLink}></MainVideo>
       <ProjectDescription>{EXHIBITION_INFO.description}</ProjectDescription>
@@ -25,7 +28,7 @@ export default function POTY() {
 }
 
 const Wrapper = styled.div`
-  padding: 50px 0 200px 0;
+  padding: 0 0 200px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +46,9 @@ const ProjectMaker = styled.p``;
 
 const MainVideo = styled.img`
   width: 1000px;
+  height: 500px;
   border: 2px solid green;
+  margin-bottom: 10px;
 `;
 
 const ProjectDescription = styled.div`
