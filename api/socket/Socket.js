@@ -13,7 +13,7 @@ socket.on("COMMENT", (data) => {
   receivedComments = data;
 });
 
-const waitForPacket = async (func, time = 1000) =>
+const waitForPacket = async (func, time = 5000) =>
   new Promise((resolve, reject) => {
     const WAIT_TIME = 50;
     let result = func();
