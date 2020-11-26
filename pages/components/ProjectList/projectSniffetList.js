@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ProjectSniffetList({ checkCount, setCheckCount, PROJECT_SNIFFET_INFO }) {
+export default function ProjectSniffetList({
+  checkCount,
+  setCheckCount,
+  PROJECT_SNIFFET_INFO,
+  titleList,
+}) {
   const handleChange = (e) => {
     if (e.target.checked) {
       setCheckCount(checkCount + 1);
@@ -12,15 +17,15 @@ export default function ProjectSniffetList({ checkCount, setCheckCount, PROJECT_
 
   return (
     <Wrapper>
-      {PROJECT_SNIFFET_INFO.map((sniffetInfo, index) => {
+      {titleList.map((title, index) => {
         return (
-          <ProjectSniffet key={index} href={`/${sniffetInfo.link}`}>
+          <ProjectSniffet key={index} href={`/${title}`}>
             <SniffetTitle>
               <input onClick={handleChange} type="checkbox"></input>
-              <Title>{sniffetInfo.title}</Title>
-              <SniffetTag>{sniffetInfo.tag}</SniffetTag>
+              <Title>{title}</Title>
+              <SniffetTag>{}</SniffetTag>
             </SniffetTitle>
-            <SniffetDetail>{sniffetInfo.detail}</SniffetDetail>
+            <SniffetDetail>{}</SniffetDetail>
           </ProjectSniffet>
         );
       })}

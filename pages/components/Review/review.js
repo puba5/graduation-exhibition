@@ -12,6 +12,7 @@ export default function Review() {
   useEffect(() => {
     refresh();
   }, []);
+  console.log(reviewList);
 
   const refresh = async () => {
     const comments = await Socket.getComments(projectId);

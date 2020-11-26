@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProjectSniffetList from "./projectSniffetList";
+import axios from "axios";
 
 const PROJECT_SNIFFET_INFO = [
   {
@@ -27,6 +28,22 @@ const COLUMN_LIST = ["Projects", "Developer", "Professor", "Sort"];
 
 export default function ProjectList() {
   const [checkCount, setCheckCount] = useState(0);
+  const [titleList, setTitleList] = useState([]);
+
+  const getTitleList = () => {
+    axios
+      .get("http://101.101.216.23:4000/select")
+      .then(function (response) {
+        setTitleList(response.data.titleList);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getTitleList();
+  }, []);
+
   return (
     <Wrapper>
       <Header>
@@ -44,6 +61,7 @@ export default function ProjectList() {
         checkCount={checkCount}
         setCheckCount={setCheckCount}
         PROJECT_SNIFFET_INFO={PROJECT_SNIFFET_INFO}
+        titleList={titleList}
       />
     </Wrapper>
   );
