@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Socket, { putComment } from "../../api/socket/Socket";
+import Socket, { deleteComment, putComment } from "../../api/socket/Socket";
 
 const REVIEW_LIST = [
   { name: "1번 방문자", content: "너무 프로젝트가 멋지네요" },
@@ -25,6 +25,11 @@ export default function Review() {
 
   const write = () => {
     putComment(projectId, { name: "주인장", content: "Express 사용했습니다" });
+    refresh();
+  };
+
+  const remove = () => {
+    deleteComment(projectId, {key: 1});
     refresh();
   };
 

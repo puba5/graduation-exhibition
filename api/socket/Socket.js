@@ -20,8 +20,7 @@ const waitForPacket = async (func, time = 5000) =>
     const timeoutFunc = (cnt) => () => {
       if (cnt <= 0) reject("Request Timeout");
       result = func();
-      if( result !== null )
-        resolve(result);
+      if (result !== null) resolve(result);
       setTimeout(timeoutFunc(cnt - 1), WAIT_TIME);
     };
     setTimeout(timeoutFunc(parseInt(time / WAIT_TIME)), WAIT_TIME);
@@ -34,11 +33,10 @@ const Socket = {
     receivedComments = null;
     return result;
   },
-  putComment: (id, commentObject) => socket.emit("PUT_COMMENT", {id, commentObject})
+  putComment: (id, commentObject) =>
+    socket.emit("PUT_COMMENT", { id, commentObject }),
+  deleteComment: (id, condition) =>
+    socket.emit("DELETE_COMMENT", { id, condition }),
 };
 
 module.exports = Socket;
-
-// 사용법
-// Socket.putComment(5, {name:"성혁", age: 25});
-// console.log( await Socket.getComments(5) );
