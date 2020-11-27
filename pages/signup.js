@@ -9,11 +9,11 @@ const Login = () => {
   return (
     <Wrapper>
       <Header />
-      <Title>졸업 전시회 로그인</Title>
+      <Title>졸업 전시회 회원가입</Title>
       <Content>
         <UserInput userLoginInfo={userLoginInfo} setUserLoginInfo={setUserLoginInfo} />
         <ContentNav>
-          <LoginButton>로그인하기</LoginButton>
+          <LoginButton>회원가입하기</LoginButton>
         </ContentNav>
       </Content>
     </Wrapper>

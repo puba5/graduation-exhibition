@@ -6,11 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "socket": "node api/Socket.js"
+    "socket": "node api/Socket.js",
+    "export": "next build && next export"
   },
   "dependencies": {
     "axios": "^0.21.0",
-    "next": "9.5.3",
+    "next": "^9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "socket.io-client": "^3.0.0",

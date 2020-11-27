@@ -2,39 +2,39 @@ import styled from "styled-components";
 
 const CHATTING_DATA = [
   {
-    userName: "고은",
-    content: "안녕 나는 고은이야!!",
+    userName: "백경현",
+    content: "안녕 나는 백경현이야!!",
   },
   {
-    userName: "정시원",
-    content: "빨리해 나는 정시원이야!!!!",
+    userName: "천성혁",
+    content: "빨리해 나는 천성혁이야!!!!",
   },
   {
-    userName: "고은",
-    content: "안녕 나는 고은이야!!",
+    userName: "백경현",
+    content: "안녕 나는 백경현이야!!",
   },
   {
-    userName: "정시원",
-    content: "빨리해 나는 정시원이야!!!!",
+    userName: "천성혁",
+    content: "빨리해 나는 천성혁이야!!!!",
   },
   {
-    userName: "고은",
-    content: "안녕 나는 고은이야!!",
+    userName: "백경현",
+    content: "안녕 나는 백경현이야!!",
   },
   {
-    userName: "정시원",
-    content: "빨리해 나는 정시원이야!!!!",
+    userName: "천성혁",
+    content: "빨리해 나는 천성혁이야!!!!",
   },
   {
-    userName: "고은",
-    content: "안녕 나는 고은이야!!",
+    userName: "백경현",
+    content: "안녕 나는 백경현이야!!",
   },
   {
-    userName: "정시원",
-    content: "빨리해 나는 정시원이야!!!!",
+    userName: "천성혁",
+    content: "빨리해 나는 천성혁이야!!!!",
   },
   {
-    userName: "고은",
+    userName: "백경현",
     content: "안녕",
   },
 ];

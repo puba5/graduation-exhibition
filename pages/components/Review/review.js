@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Socket, { deleteComment, putComment } from "../../../api/socket/Socket";
 
-export default function Review() {
-  const projectId = "poty";
+export default function Review({ PROJECT_NAME }) {
+  const projectId = PROJECT_NAME;
 
   const [nickName, setNickname] = useState("");
   const [commentContent, setCommentContent] = useState("");

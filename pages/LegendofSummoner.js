@@ -4,8 +4,6 @@ import Review from "./components/Review/review";
 import Header from "./components/header";
 import axios from "axios";
 
-const PROJECT_NAME = "POTY";
-
 export default function POTY() {
   const [projectInfo, setProjectInfo] = useState({
     developer: [],
@@ -19,7 +17,7 @@ export default function POTY() {
   useEffect(() => {
     getData();
     axios
-      .get(`http://101.101.216.23:4000/pages/${PROJECT_NAME}`)
+      .get("http://101.101.216.23:4000/pages/LegendofSummoner")
       .then(function (response) {
         setProjectInfo({ ...projectInfo, ...response.data });
       })
@@ -44,7 +42,7 @@ export default function POTY() {
       <MainVideo src={projectInfo.imageLink}></MainVideo>
       <div>작품 설명</div>
       <ProjectDescription>{projectInfo.content}</ProjectDescription>
-      <Review PROJECT_NAME={PROJECT_NAME} />
+      <Review />
     </Wrapper>
   );
 }
